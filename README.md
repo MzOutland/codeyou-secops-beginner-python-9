@@ -548,3 +548,76 @@ Your design should make it easy to later add:
 * Trello card creation for prioritized items
 
 Stop at inventory normalization and CLI operations for this assignment.
+
+---
+
+# My Assignment Notes
+
+## How to Run the Program
+
+Pull inventory from all sources:
+
+```bash
+py main.py pull --source all
+```
+
+List NetBox assets:
+
+```bash
+py main.py list --source netbox
+```
+
+Search all inventories:
+
+```bash
+py main.py search --query windows --source all
+```
+
+Display inventory statistics:
+
+```bash
+py main.py stats --source all
+```
+
+---
+
+## Schema Mapping
+
+### NetBox
+
+| NetBox Field | Asset Field |
+|--------------|-------------|
+| id | asset_id |
+| device_name | hostname |
+| primary_ip | ip_address |
+| platform | os |
+| environment | environment |
+| tenant | owner_context |
+
+### Qualys
+
+| Qualys Field | Asset Field |
+|--------------|-------------|
+| asset_id | asset_id |
+| hostname | hostname |
+| ip_address | ip_address |
+| operating_system | os |
+| asset_group | environment |
+| criticality | owner_context |
+
+### CrowdStrike
+
+| CrowdStrike Field | Asset Field |
+|-------------------|-------------|
+| sensor_id | asset_id |
+| hostname | hostname |
+| local_ip | ip_address |
+| os_version | os |
+| device_type | environment |
+| logged_in_user | owner_context |
+
+---
+
+## Challenge Extensions
+
+No challenge extensions were completed for this submission.
